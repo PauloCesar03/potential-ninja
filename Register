@@ -1,0 +1,111 @@
+#include<iostream>
+#include<conio.h>
+#define max 1000
+#define min 1
+
+using namespace std;
+
+int main()
+{
+    struct nacimiento_s
+    {
+        int dia;
+        int mes;
+        int annio;
+    };
+
+    struct padre_s
+    {
+        char nombre[40];
+        int edad;
+    };
+
+    struct madre_s
+    {
+        char nombre[40];
+        int edad;
+    };
+
+    //resgistro principal
+    struct recien_nacido
+    {
+        char nombre[40];
+        char sexo;
+        nacimiento_s nacimiento_d;
+        padre_s padre_d;
+        madre_s madre_d;
+    };
+
+    //variables
+    recien_nacido nacidos[max];
+    madre_s madres[max];
+    padre_s padres[max];
+    nacimiento_s nacimientos[max];
+    int n,i;
+
+cout<<"________REGISTRO DE RECIEN NACIDOS________"<<endl;
+cout<<"\n";
+do
+{
+cout<<"Ingrese la cantidad de recien nacidos : ";
+cin>>n;
+}while(n<min || n>max);
+
+cout<<"\n";
+
+for(i=1;i<=n;i++)
+{
+    cout<<"--RECIEN NACIDO N° "<<i<<" :"<<endl;
+    cout<<"\n";
+    cout<<"Ingrese el nombre : ";
+    cin>>nacidos[i].nombre;
+    cout<<"Ingrese el sexo : ";
+    cin>>nacidos[i].sexo;
+    //dia de nacimiento
+    cout<<"Ingrese el dia de nacimiento : ";
+    cin>>nacimientos[i].dia;
+    cout<<"Ingrese el mes de nacimiento : ";
+    cin>>nacimientos[i].mes;
+    cout<<"Ingrese el annio de nacimiento : ";
+    cin>>nacimientos[i].annio;
+    //padre
+    cout<<"Ingrese el nombre del padre : ";
+    cin>>padres[i].nombre;
+    cout<<"Ingrese la edad del padre : ";
+    cin>>padres[i].edad;
+    //madre
+    cout<<"Ingrese el nombre de la madre : ";
+    cin>>madres[i].nombre;
+    cout<<"Ingrese la edad de la madre : ";
+    cin>>madres[i].edad;
+
+    cout<<"\n";
+}
+
+cout<<"\n";
+cout<<"----------------------------------------------------------"<<endl;
+cout<<"\n";
+
+cout<<"Mostrando Registros del dia de hoy ...";
+
+cout<<"\n";
+cout<<"\n";
+
+for(i=1;i<=n;i++)
+{
+    cout<<"Recien nacido N° "<<i<<" :"<<endl;
+    cout<<"Nombre              : "<<nacidos[i].nombre<<endl;
+    cout<<"Sexo                : "<<nacidos[i].sexo<<endl;
+    cout<<"Fecha de nacimiento : "<<nacimientos[i].dia<<"/"<<nacimientos[i].mes<<"/"<<nacimientos[i].annio<<endl;
+    cout<<"Datos del Padre      "<<endl;
+    cout<<"  Nombre            : "<<padres[i].nombre<<endl;
+    cout<<"  Edad              : "<<padres[i].edad<<endl;
+    cout<<"Datos de la Madre    "<<endl;
+    cout<<"  Nombre            : "<<madres[i].nombre<<endl;
+    cout<<"  Edad              : "<<madres[i].edad<<endl;
+    cout<<"\n";
+}
+
+    getch();
+    return 0;
+}
